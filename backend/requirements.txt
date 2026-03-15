@@ -1,6 +1,8 @@
 fastapi
 uvicorn[standard]
 python-multipart
-PyMuPDF
+sentence-transformers
+scikit-learn
+pydantic
 python-dotenv
-spacy 
+PyPDF2
