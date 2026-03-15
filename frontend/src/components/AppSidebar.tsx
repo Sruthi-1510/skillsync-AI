@@ -1,0 +1,105 @@
+import {
+  FileText,
+  LayoutDashboard,
+  Map,
+  ClipboardCheck,
+  Mic,
+  TrendingUp,
+  Sparkles,
+  MessageSquare,
+} from "lucide-react";
+import { NavLink } from "@/components/NavLink";
+import { useLocation } from "react-router-dom";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarHeader,
+  SidebarFooter,
+  useSidebar,
+} from "@/components/ui/sidebar";
+
+const mainItems = [
+  { title: "Dashboard", url: "/", icon: LayoutDashboard },
+  { title: "Resume Intelligence", url: "/resume", icon: FileText },
+  { title: "Learning Roadmap", url: "/roadmap", icon: Map },
+  { title: "Assessments", url: "/assessments", icon: ClipboardCheck },
+  { title: "Mock Interview", url: "/interview", icon: Mic },
+  { title: "Placement Intel", url: "/placement", icon: TrendingUp },
+  { title: "AI Assistant", url: "/chatbot", icon: MessageSquare },
+];
+
+export function AppSidebar() {
+  const { state } = useSidebar();
+  const collapsed = state === "collapsed";
+  const location = useLocation();
+  const isActive = (path: string) =>
+    path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
+
+  return (
+    <Sidebar collapsible="icon">
+      <SidebarHeader className="p-4">
+        <div className="flex items-center gap-2">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+            <Sparkles className="h-4 w-4 text-primary-foreground" />
+          </div>
+          {!collapsed && (
+            <span className="font-display text-lg font-bold text-foreground">
+              SkillSync
+            </span>
+          )}
+        </div>
+      </SidebarHeader>
+
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {mainItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={isActive(item.url)}
+                  >
+                    <NavLink
+                      to={item.url}
+                      end={item.url === "/"}
+                      className="hover:bg-sidebar-accent/50"
+                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                    >
+                      <item.icon className="mr-2 h-4 w-4" />
+                      {!collapsed && <span>{item.title}</span>}
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+
+      <SidebarFooter className="p-4">
+        {!collapsed && (
+          <div className="rounded-lg bg-secondary p-3">
+            <p className="text-xs font-medium text-muted-foreground">
+              Placement Ready Score
+            </p>
+            <div className="mt-1 flex items-baseline gap-1">
+              <span className="font-display text-2xl font-bold text-foreground">72%</span>
+              <span className="text-xs text-success">↑ 5%</span>
+            </div>
+            <div className="mt-2 h-1.5 w-full rounded-full bg-border">
+              <div className="h-1.5 rounded-full bg-primary" style={{ width: "72%" }} />
+            </div>
+          </div>
+        )}
+      </SidebarFooter>
+    </Sidebar>
+  );
+}
