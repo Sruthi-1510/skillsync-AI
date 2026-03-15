@@ -19,6 +19,7 @@ UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @app.get("/")
+
 def root():
     return {"message": "SkillSync API is running"}
 
