@@ -18,3 +18,5 @@ Thumbs.db
 # VS Code
 .vscode/settings.json
 ```
+__pycache__/
+*.pyc
