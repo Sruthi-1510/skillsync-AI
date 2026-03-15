@@ -20,3 +20,8 @@ Thumbs.db
 ```
 __pycache__/
 *.pyc
+<<<<<<< HEAD
+=======
+venv/
+uploads/
+>>>>>>> 8c09ea16fe68f231812adcb9e696580d710eb692
