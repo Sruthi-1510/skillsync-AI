@@ -2,6 +2,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from app.routers import match
+from services.skill_extractor import extract_skills
 import fitz
 import uuid, os, shutil
 
@@ -58,8 +59,12 @@ async def upload_resume(file: UploadFile = File(...)):
             detail="Could not extract text. Use a text-based PDF, not a scanned image."
         )
 
+    skills = extract_skills(text)
+
     return {
-        "resume_id": file_id,
-        "raw_text":  text,
-        "message":   "Resume uploaded and text extracted successfully"
+        "resume_id":        file_id,
+        "raw_text":         text,
+        "extracted_skills": skills,
+        "skill_count":      len(skills),
+        "message":          "Resume parsed successfully"
     }
