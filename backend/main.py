@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from app.routers import match
 from services.skill_extractor import extract_skills
+from services.skill_gap_analyzer import detect_skill_gap
 import fitz
 import uuid, os, shutil
 
@@ -69,3 +70,7 @@ async def upload_resume(file: UploadFile = File(...)):
         "skill_count":      len(skills),
         "message":          "Resume parsed successfully"
     }
+@app.post("/api/v1/resume/skill-gap")
+async def skill_gap(resume_skills: list[str], role: str):
+    result = detect_skill_gap(resume_skills, role)
+    return result

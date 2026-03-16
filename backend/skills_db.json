@@ -1,0 +1,230 @@
+{
+  "data scientist": [
+    "python", "r", "sql", "statistics", "probability",
+    "machine learning", "deep learning", "data visualization",
+    "pandas", "numpy", "scikit-learn", "tensorflow",
+    "pytorch", "feature engineering", "data preprocessing",
+    "model evaluation", "hypothesis testing", "tableau",
+    "power bi", "big data"
+  ],
+
+  "software engineer": [
+    "python", "java", "c++", "data structures",
+    "algorithms", "object oriented programming",
+    "system design", "operating systems",
+    "computer networks", "git", "rest api",
+    "microservices", "docker", "kubernetes",
+    "sql", "nosql", "testing", "debugging"
+  ],
+
+  "frontend developer": [
+    "html", "css", "javascript", "typescript",
+    "react", "nextjs", "redux", "tailwind css",
+    "bootstrap", "responsive design",
+    "web performance optimization",
+    "rest api integration", "graphql",
+    "git", "webpack", "vite",
+    "figma", "ui ux principles"
+  ],
+
+  "backend developer": [
+    "python", "nodejs", "java", "fastapi",
+    "express", "spring boot", "rest api",
+    "graphql", "microservices",
+    "postgresql", "mongodb", "redis",
+    "docker", "kubernetes",
+    "authentication", "jwt", "api security",
+    "system design", "message queues"
+  ],
+
+  "ml engineer": [
+    "python", "machine learning", "deep learning",
+    "tensorflow", "pytorch", "scikit-learn",
+    "feature engineering", "model deployment",
+    "mlops", "docker", "kubernetes",
+    "airflow", "data pipelines",
+    "pandas", "numpy", "spark",
+    "experiment tracking", "model monitoring"
+  ],
+
+  "data engineer": [
+    "python", "sql", "spark", "hadoop",
+    "airflow", "etl pipelines", "data pipelines",
+    "data warehousing", "data lakes",
+    "aws", "gcp", "azure",
+    "docker", "kubernetes",
+    "kafka", "stream processing",
+    "snowflake", "bigquery", "redshift"
+  ],
+
+  "devops engineer": [
+    "linux", "bash scripting", "docker",
+    "kubernetes", "terraform",
+    "ansible", "ci cd", "jenkins",
+    "github actions", "gitlab ci",
+    "aws", "gcp", "azure",
+    "monitoring", "prometheus", "grafana",
+    "infrastructure as code"
+  ],
+
+  "cloud engineer": [
+    "aws", "azure", "gcp",
+    "cloud architecture", "virtual networks",
+    "cloud security", "docker",
+    "kubernetes", "terraform",
+    "linux", "load balancing",
+    "auto scaling", "cloud storage"
+  ],
+
+  "site reliability engineer": [
+    "linux", "python", "go",
+    "system design", "monitoring",
+    "prometheus", "grafana",
+    "incident management",
+    "docker", "kubernetes",
+    "ci cd", "automation"
+  ],
+
+  "cybersecurity analyst": [
+    "network security", "ethical hacking",
+    "penetration testing", "vulnerability assessment",
+    "siem", "firewalls", "intrusion detection",
+    "risk assessment", "security audits",
+    "cryptography", "python", "linux"
+  ],
+
+  "mobile app developer": [
+    "java", "kotlin", "android",
+    "swift", "ios development",
+    "flutter", "react native",
+    "mobile ui design",
+    "rest api integration",
+    "firebase", "push notifications",
+    "git"
+  ],
+
+  "full stack developer": [
+    "html", "css", "javascript",
+    "typescript", "react",
+    "nodejs", "express",
+    "mongodb", "postgresql",
+    "rest api", "graphql",
+    "docker", "git",
+    "authentication", "system design"
+  ],
+
+  "ai engineer": [
+    "python", "machine learning",
+    "deep learning", "nlp",
+    "transformers", "huggingface",
+    "tensorflow", "pytorch",
+    "vector databases",
+    "langchain", "llm integration",
+    "model deployment", "docker"
+  ],
+
+  "nlp engineer": [
+    "python", "natural language processing",
+    "text preprocessing", "transformers",
+    "bert", "gpt models",
+    "huggingface", "deep learning",
+    "pytorch", "spacy",
+    "tokenization"
+  ],
+
+  "computer vision engineer": [
+    "python", "opencv",
+    "image processing",
+    "deep learning",
+    "tensorflow", "pytorch",
+    "cnn", "object detection",
+    "image segmentation"
+  ],
+
+  "blockchain developer": [
+    "solidity", "ethereum",
+    "smart contracts",
+    "web3", "cryptography",
+    "javascript", "blockchain architecture",
+    "dapps", "token standards"
+  ],
+
+  "game developer": [
+    "c++", "c#", "unity",
+    "unreal engine",
+    "3d graphics",
+    "game physics",
+    "animation systems"
+  ],
+
+  "qa engineer": [
+    "software testing",
+    "test automation",
+    "selenium", "cypress",
+    "api testing",
+    "performance testing",
+    "test cases",
+    "jira", "debugging"
+  ],
+
+  "product manager": [
+    "product strategy",
+    "roadmap planning",
+    "market research",
+    "agile methodology",
+    "scrum",
+    "stakeholder management",
+    "user stories",
+    "analytics"
+  ],
+
+  "ui ux designer": [
+    "figma", "adobe xd",
+    "user research",
+    "wireframing",
+    "prototyping",
+    "interaction design",
+    "usability testing"
+  ],
+
+  "business analyst": [
+    "sql", "data analysis",
+    "requirements gathering",
+    "stakeholder management",
+    "excel", "power bi",
+    "process modeling"
+  ],
+
+  "data analyst": [
+    "sql", "python",
+    "excel", "power bi",
+    "tableau", "data visualization",
+    "statistics",
+    "data cleaning"
+  ],
+
+  "database administrator": [
+    "sql", "postgresql",
+    "mysql", "database tuning",
+    "backup recovery",
+    "replication",
+    "database security"
+  ],
+
+  "embedded systems engineer": [
+    "c", "c++",
+    "microcontrollers",
+    "embedded linux",
+    "rtos",
+    "hardware interfacing",
+    "device drivers"
+  ],
+
+  "iot engineer": [
+    "embedded systems",
+    "python", "c",
+    "mqtt", "sensor integration",
+    "iot protocols",
+    "cloud iot platforms"
+  ]
+}
