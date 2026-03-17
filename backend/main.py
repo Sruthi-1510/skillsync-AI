@@ -2,12 +2,9 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from app.routers import match
-<<<<<<< HEAD
 from app.services.skill_extractor import extract_skills
-=======
-from services.skill_extractor import extract_skills
+from app.services.skill_extractor import extract_skills
 from services.skill_gap_analyzer import detect_skill_gap
->>>>>>> b50f7c3c013c9204919e2dbceadaec585e354055
 import fitz
 import uuid, os, shutil
 
