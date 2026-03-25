@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from app.routers import match
 from app.services.skill_extractor import extract_skills
 from services.skill_gap_analyzer import detect_skill_gap
+from app.routers import roadmap
 import fitz
 import uuid, os, shutil
 
@@ -21,7 +22,7 @@ app.add_middleware(
 
 # Register routers
 app.include_router(match.router)
-
+app.include_router(roadmap.router)
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
