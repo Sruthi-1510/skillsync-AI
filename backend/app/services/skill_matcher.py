@@ -1,7 +1,7 @@
 # skill_matcher.py
 
 import pandas as pd
-from skill_mapping import skill_mapping  # import the dictionary
+from backend.app.services.skill_mapping import skill_mapping  # import the dictionary
 
 # Load skills CSV once
 skills = pd.read_csv("../data/skills.csv")
