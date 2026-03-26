@@ -5,14 +5,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-1.5-flash")
+
+# ✅ Stable working model
+model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
 
-def generate_roadmap(
-    missing_skills: list[str],
-    target_role: str,
-    timeline_weeks: int,
-) -> dict:
+def generate_roadmap(missing_skills, target_role, timeline_weeks):
 
     if not missing_skills:
         return {
@@ -29,40 +27,48 @@ You are a career coach and technical mentor. A student wants to become a {target
 
 They are currently missing these skills: {skills_str}
 
-Generate a structured {timeline_weeks}-week learning roadmap to help them learn these skills.
+Generate a structured {timeline_weeks}-week learning roadmap.
 
-Return ONLY a valid JSON object in this exact format, no extra text, no markdown:
+Return ONLY valid JSON:
 {{
   "target_role": "{target_role}",
   "total_weeks": {timeline_weeks},
-  "summary": "A 2-sentence overview of the learning plan",
+  "summary": "Short summary",
   "roadmap": [
     {{
       "week": "Week 1-2",
-      "topic": "Skill name",
-      "description": "What they will learn and why it matters",
-      "resources": ["Resource 1", "Resource 2", "Resource 3"],
-      "project": "A small hands-on project to apply the skill"
+      "topic": "Skill",
+      "description": "What to learn",
+      "resources": ["Resource1", "Resource2"],
+      "project": "Mini project"
     }}
   ]
 }}
-
-Rules:
-- Group related skills together into the same week block
-- Keep resources free and beginner-friendly (official docs, YouTube, freeCodeCamp etc.)
-- Each project must be specific and practical
-- Cover all the missing skills: {skills_str}
-- Return pure JSON only, no markdown code blocks
 """
 
-    response = model.generate_content(prompt)
-    raw = response.text.strip()
+    try:
+        response = model.generate_content(prompt)
+        raw = response.text.strip()
 
-    # Strip markdown code blocks if Gemini adds them anyway
-    raw = re.sub(r"^```json\s*", "", raw)
-    raw = re.sub(r"^```\s*", "", raw)
-    raw = re.sub(r"\s*```$", "", raw)
-    raw = raw.strip()
+        # Clean markdown
+        raw = re.sub(r"^```json\s*", "", raw)
+        raw = re.sub(r"^```\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw).strip()
 
-    data = json.loads(raw)
-    return data
+        data = json.loads(raw)
+
+        # ✅ Ensure schema safety
+        return {
+            "target_role": data.get("target_role", target_role),
+            "total_weeks": data.get("total_weeks", timeline_weeks),
+            "summary": data.get("summary", "Generated roadmap"),
+            "roadmap": data.get("roadmap", []),
+        }
+
+    except Exception as e:
+        return {
+            "target_role": target_role,
+            "total_weeks": timeline_weeks,
+            "summary": f"Generation failed: {str(e)}",
+            "roadmap": [],
+        }
