@@ -21,7 +21,7 @@ app.add_middleware(
 
 # Register routers
 app.include_router(match.router)
-
+app.include_router(roadmap.router)
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
