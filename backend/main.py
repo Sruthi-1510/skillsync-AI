@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from app.routers import match
 from app.services.skill_extractor import extract_skills
-from services.skill_gap_analyzer import detect_skill_gap
+from app.services.skill_gap_analyzer import detect_skill_gap
 import fitz
 import uuid, os, shutil
 
