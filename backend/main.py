@@ -5,10 +5,12 @@ from app.routers import match, roadmap
 from app.services.skill_extractor import extract_skills
 import fitz
 import uuid, os, shutil
+from app.routers import chat
 
 load_dotenv()
 
 app = FastAPI(title="SkillSync API", version="1.0.0")
+# app.include_router(chat.router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -21,6 +23,7 @@ app.add_middleware(
 # Register routers
 app.include_router(match.router)
 app.include_router(roadmap.router)
+app.include_router(chat.router)
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
