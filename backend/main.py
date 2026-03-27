@@ -2,6 +2,10 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from app.routers import match
+<<<<<<< HEAD
+=======
+from app.services.skill_extractor import extract_skills
+>>>>>>> 12ff97afad46b976d0fa7c107b78ea4d9d7f6789
 from app.routers import roadmap
 from app.services.skill_extractor import extract_skills
 from app.services.skill_gap_analyzer import detect_skill_gap
@@ -72,7 +76,3 @@ async def upload_resume(file: UploadFile = File(...)):
     }
 
 
-@app.post("/api/v1/resume/skill-gap")
-async def skill_gap(resume_skills: list[str], role: str):
-    result = detect_skill_gap(resume_skills, role)
-    return result

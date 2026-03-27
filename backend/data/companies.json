@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "name": "Google",
+    "logo": "https://logo.clearbit.com/google.com",
+    "career_url": "https://careers.google.com",
+    "jd": "We are looking for software engineers with strong skills in Python, Java, C++, distributed systems, algorithms, data structures, machine learning, TensorFlow, Kubernetes, Docker, SQL, NoSQL, REST APIs, system design, and cloud infrastructure on GCP. Experience with large-scale systems and open source contributions is a plus."
+  },
+  {
+    "id": 2,
+    "name": "Microsoft",
+    "logo": "https://logo.clearbit.com/microsoft.com",
+    "career_url": "https://careers.microsoft.com",
+    "jd": "Seeking software engineers proficient in C#, Python, Java, Azure, TypeScript, React, .NET, SQL Server, REST APIs, microservices, Docker, Kubernetes, DevOps, CI/CD, system design, and cloud computing. Experience with agile development and open source is valued."
+  },
+  {
+    "id": 3,
+    "name": "Amazon",
+    "logo": "https://logo.clearbit.com/amazon.com",
+    "career_url": "https://amazon.jobs",
+    "jd": "Looking for engineers skilled in Java, Python, AWS, distributed systems, system design, SQL, NoSQL, DynamoDB, microservices, REST APIs, Docker, Kubernetes, CI/CD, data structures, algorithms, and cloud architecture. Strong problem-solving and leadership principles are essential."
+  },
+  {
+    "id": 4,
+    "name": "Meta",
+    "logo": "https://logo.clearbit.com/meta.com",
+    "career_url": "https://metacareers.com",
+    "jd": "We hire engineers with expertise in Python, C++, Java, React, GraphQL, distributed systems, machine learning, PyTorch, data pipelines, SQL, NoSQL, system design, REST APIs, and large-scale infrastructure. Experience in social networking and AI/ML research is a strong plus."
+  },
+  {
+    "id": 5,
+    "name": "Apple",
+    "logo": "https://logo.clearbit.com/apple.com",
+    "career_url": "https://apple.com/careers",
+    "jd": "Seeking engineers with Swift, Objective-C, Python, C++, machine learning, CoreML, iOS development, macOS, REST APIs, SQL, data structures, algorithms, system design, computer vision, and hardware-software integration skills."
+  },
+  {
+    "id": 6,
+    "name": "Netflix",
+    "logo": "https://logo.clearbit.com/netflix.com",
+    "career_url": "https://jobs.netflix.com",
+    "jd": "Looking for engineers skilled in Java, Python, Scala, AWS, microservices, distributed systems, Kafka, Cassandra, SQL, NoSQL, REST APIs, Docker, Kubernetes, data engineering, machine learning, and streaming technologies."
+  },
+  {
+    "id": 7,
+    "name": "Spotify",
+    "logo": "https://logo.clearbit.com/spotify.com",
+    "career_url": "https://lifeatspotify.com",
+    "jd": "We look for engineers experienced in Python, Java, Scala, Kafka, data pipelines, machine learning, SQL, NoSQL, GCP, Docker, Kubernetes, REST APIs, microservices, recommendation systems, and agile development."
+  },
+  {
+    "id": 8,
+    "name": "Uber",
+    "logo": "https://logo.clearbit.com/uber.com",
+    "career_url": "https://uber.com/careers",
+    "jd": "Seeking engineers proficient in Go, Python, Java, microservices, distributed systems, Kafka, MySQL, PostgreSQL, Redis, REST APIs, Docker, Kubernetes, system design, geospatial algorithms, and real-time data processing."
+  },
+  {
+    "id": 9,
+    "name": "Airbnb",
+    "logo": "https://logo.clearbit.com/airbnb.com",
+    "career_url": "https://careers.airbnb.com",
+    "jd": "Looking for engineers with Python, Java, React, TypeScript, SQL, Spark, Airflow, data engineering, machine learning, REST APIs, microservices, Docker, Kubernetes, system design, and experience with trust and safety systems."
+  },
+  {
+    "id": 10,
+    "name": "LinkedIn",
+    "logo": "https://logo.clearbit.com/linkedin.com",
+    "career_url": "https://careers.linkedin.com",
+    "jd": "We seek engineers skilled in Java, Python, Scala, Kafka, Hadoop, Spark, SQL, NoSQL, REST APIs, machine learning, graph algorithms, distributed systems, Docker, Kubernetes, and professional networking technologies."
+  },
+  {
+    "id": 11,
+    "name": "Twitter / X",
+    "logo": "https://logo.clearbit.com/x.com",
+    "career_url": "https://careers.x.com",
+    "jd": "Seeking engineers with Scala, Java, Python, Kafka, distributed systems, SQL, NoSQL, Redis, REST APIs, microservices, Docker, Kubernetes, machine learning, real-time processing, and large-scale social media infrastructure experience."
+  },
+  {
+    "id": 12,
+    "name": "Salesforce",
+    "logo": "https://logo.clearbit.com/salesforce.com",
+    "career_url": "https://salesforce.com/careers",
+    "jd": "Looking for engineers with Java, Python, JavaScript, React, Apex, SQL, REST APIs, microservices, Salesforce platform, cloud computing, Docker, Kubernetes, CI/CD, DevOps, and CRM system design experience."
+  },
+  {
+    "id": 13,
+    "name": "Adobe",
+    "logo": "https://logo.clearbit.com/adobe.com",
+    "career_url": "https://adobe.com/careers",
+    "jd": "We hire engineers skilled in Java, Python, C++, JavaScript, React, machine learning, computer vision, deep learning, SQL, NoSQL, cloud computing, REST APIs, microservices, Docker, and creative technology platforms."
+  },
+  {
+    "id": 14,
+    "name": "Oracle",
+    "logo": "https://logo.clearbit.com/oracle.com",
+    "career_url": "https://oracle.com/careers",
+    "jd": "Seeking engineers with Java, Python, SQL, Oracle DB, PL/SQL, cloud computing, REST APIs, microservices, distributed systems, Docker, Kubernetes, DevOps, CI/CD, and enterprise software development experience."
+  },
+  {
+    "id": 15,
+    "name": "IBM",
+    "logo": "https://logo.clearbit.com/ibm.com",
+    "career_url": "https://ibm.com/careers",
+    "jd": "Looking for engineers with Python, Java, cloud computing, AI/ML, Watson, SQL, NoSQL, REST APIs, microservices, Docker, Kubernetes, DevOps, blockchain, and enterprise solutions architecture experience."
+  },
+  {
+    "id": 16,
+    "name": "Infosys",
+    "logo": "https://logo.clearbit.com/infosys.com",
+    "career_url": "https://infosys.com/careers",
+    "jd": "Seeking engineers skilled in Java, Python, JavaScript, SQL, REST APIs, microservices, cloud computing, AWS, Azure, Docker, DevOps, agile, Spring Boot, React, and enterprise application development."
+  },
+  {
+    "id": 17,
+    "name": "TCS",
+    "logo": "https://logo.clearbit.com/tcs.com",
+    "career_url": "https://tcs.com/careers",
+    "jd": "Looking for engineers with Java, Python, SQL, JavaScript, REST APIs, cloud computing, AWS, Azure, DevOps, Docker, agile, testing, Spring, microservices, and IT consulting and delivery experience."
+  },
+  {
+    "id": 18,
+    "name": "Wipro",
+    "logo": "https://logo.clearbit.com/wipro.com",
+    "career_url": "https://wipro.com/careers",
+    "jd": "We hire engineers skilled in Java, Python, SQL, JavaScript, cloud computing, AWS, Azure, DevOps, Docker, REST APIs, microservices, agile, testing, Spring Boot, and IT services delivery."
+  },
+  {
+    "id": 19,
+    "name": "HCL Technologies",
+    "logo": "https://logo.clearbit.com/hcltech.com",
+    "career_url": "https://hcltech.com/careers",
+    "jd": "Seeking engineers with Java, Python, SQL, JavaScript, cloud computing, DevOps, AWS, Azure, REST APIs, microservices, Docker, agile, testing, Angular, and enterprise IT solutions experience."
+  },
+  {
+    "id": 20,
+    "name": "Accenture",
+    "logo": "https://logo.clearbit.com/accenture.com",
+    "career_url": "https://accenture.com/careers",
+    "jd": "Looking for engineers proficient in Java, Python, JavaScript, cloud computing, AI/ML, SQL, REST APIs, microservices, Docker, DevOps, agile, React, Angular, and digital transformation consulting."
+  },
+  {
+    "id": 21,
+    "name": "Cognizant",
+    "logo": "https://logo.clearbit.com/cognizant.com",
+    "career_url": "https://careers.cognizant.com",
+    "jd": "We seek engineers with Java, Python, JavaScript, SQL, cloud computing, AWS, REST APIs, microservices, Docker, agile, testing, Spring, React, DevOps, and IT services development experience."
+  },
+  {
+    "id": 22,
+    "name": "Capgemini",
+    "logo": "https://logo.clearbit.com/capgemini.com",
+    "career_url": "https://capgemini.com/careers",
+    "jd": "Seeking engineers skilled in Java, Python, JavaScript, SQL, cloud, AWS, Azure, REST APIs, microservices, Docker, agile, DevOps, SAP, React, and enterprise technology consulting."
+  },
+  {
+    "id": 23,
+    "name": "Deloitte",
+    "logo": "https://logo.clearbit.com/deloitte.com",
+    "career_url": "https://deloitte.com/careers",
+    "jd": "Looking for engineers with Python, Java, SQL, data analytics, machine learning, cloud computing, REST APIs, Power BI, Tableau, DevOps, microservices, and technology consulting experience."
+  },
+  {
+    "id": 24,
+    "name": "Goldman Sachs",
+    "logo": "https://logo.clearbit.com/goldmansachs.com",
+    "career_url": "https://goldmansachs.com/careers",
+    "jd": "We hire engineers skilled in Java, Python, C++, SQL, distributed systems, algorithms, data structures, machine learning, REST APIs, microservices, risk systems, real-time data, and financial technology."
+  },
+  {
+    "id": 25,
+    "name": "JPMorgan Chase",
+    "logo": "https://logo.clearbit.com/jpmorganchase.com",
+    "career_url": "https://jpmorgan.com/careers",
+    "jd": "Seeking engineers with Java, Python, SQL, cloud computing, AWS, REST APIs, microservices, Docker, machine learning, data engineering, risk management systems, DevOps, and fintech experience."
+  },
+  {
+    "id": 26,
+    "name": "PayPal",
+    "logo": "https://logo.clearbit.com/paypal.com",
+    "career_url": "https://paypal.com/careers",
+    "jd": "Looking for engineers skilled in Java, Python, Node.js, SQL, NoSQL, REST APIs, microservices, Docker, Kubernetes, payments systems, fraud detection, machine learning, and cloud computing."
+  },
+  {
+    "id": 27,
+    "name": "Razorpay",
+    "logo": "https://logo.clearbit.com/razorpay.com",
+    "career_url": "https://razorpay.com/jobs",
+    "jd": "We seek engineers with Python, Go, Java, SQL, NoSQL, REST APIs, microservices, payments infrastructure, Docker, Kubernetes, Redis, machine learning, and fintech product development experience."
+  },
+  {
+    "id": 28,
+    "name": "Flipkart",
+    "logo": "https://logo.clearbit.com/flipkart.com",
+    "career_url": "https://flipkartcareers.com",
+    "jd": "Seeking engineers skilled in Java, Python, Scala, SQL, NoSQL, distributed systems, Kafka, Spark, machine learning, REST APIs, microservices, Docker, Kubernetes, and e-commerce platform development."
+  },
+  {
+    "id": 29,
+    "name": "Swiggy",
+    "logo": "https://logo.clearbit.com/swiggy.com",
+    "career_url": "https://bytes.swiggy.com/careers",
+    "jd": "Looking for engineers with Go, Python, Java, SQL, NoSQL, Redis, Kafka, microservices, REST APIs, Docker, Kubernetes, geospatial systems, machine learning, and real-time logistics platform experience."
+  },
+  {
+    "id": 30,
+    "name": "Zomato",
+    "logo": "https://logo.clearbit.com/zomato.com",
+    "career_url": "https://zomato.com/careers",
+    "jd": "We hire engineers skilled in Python, Go, Java, SQL, NoSQL, Redis, REST APIs, microservices, Docker, Kubernetes, machine learning, recommendation systems, geospatial algorithms, and food-tech platform development."
+  },
+  {
+    "id": 31,
+    "name": "Paytm",
+    "logo": "https://logo.clearbit.com/paytm.com",
+    "career_url": "https://paytm.com/careers",
+    "jd": "Seeking engineers with Java, Python, SQL, NoSQL, REST APIs, microservices, payments systems, Docker, Kubernetes, Redis, Kafka, machine learning, fraud detection, and fintech development experience."
+  },
+  {
+    "id": 32,
+    "name": "BYJU'S",
+    "logo": "https://logo.clearbit.com/byjus.com",
+    "career_url": "https://byjus.com/careers",
+    "jd": "Looking for engineers skilled in Python, Java, JavaScript, React, SQL, NoSQL, REST APIs, machine learning, recommendation systems, Docker, microservices, and edtech platform development."
+  },
+  {
+    "id": 33,
+    "name": "Freshworks",
+    "logo": "https://logo.clearbit.com/freshworks.com",
+    "career_url": "https://freshworks.com/company/careers",
+    "jd": "We seek engineers with Ruby on Rails, Python, Java, JavaScript, React, SQL, NoSQL, REST APIs, microservices, Docker, Kubernetes, SaaS platforms, and customer engagement technology experience."
+  },
+  {
+    "id": 34,
+    "name": "Zoho",
+    "logo": "https://logo.clearbit.com/zoho.com",
+    "career_url": "https://zoho.com/careers",
+    "jd": "Seeking engineers skilled in Java, Python, JavaScript, SQL, REST APIs, microservices, cloud computing, React, Angular, DevOps, Docker, and enterprise SaaS product development."
+  },
+  {
+    "id": 35,
+    "name": "PhonePe",
+    "logo": "https://logo.clearbit.com/phonepe.com",
+    "career_url": "https://phonepe.com/en/careers",
+    "jd": "Looking for engineers with Java, Python, SQL, NoSQL, REST APIs, microservices, Kafka, Redis, Docker, Kubernetes, payments systems, machine learning, and fintech platform development experience."
+  },
+  {
+    "id": 36,
+    "name": "Ola",
+    "logo": "https://logo.clearbit.com/olacabs.com",
+    "career_url": "https://ola.careers",
+    "jd": "We hire engineers skilled in Python, Go, Java, SQL, NoSQL, Redis, Kafka, microservices, REST APIs, Docker, Kubernetes, geospatial systems, real-time data, and mobility platform development."
+  },
+  {
+    "id": 37,
+    "name": "Zepto",
+    "logo": "https://logo.clearbit.com/zeptonow.com",
+    "career_url": "https://zeptonow.com/careers",
+    "jd": "Seeking engineers with Python, Go, Java, SQL, NoSQL, Redis, REST APIs, microservices, Docker, Kubernetes, logistics optimization, machine learning, and quick commerce platform development."
+  },
+  {
+    "id": 38,
+    "name": "CRED",
+    "logo": "https://logo.clearbit.com/cred.club",
+    "career_url": "https://careers.cred.club",
+    "jd": "Looking for engineers skilled in Kotlin, Python, Java, SQL, NoSQL, REST APIs, microservices, Docker, Kubernetes, Redis, Kafka, fintech systems, machine learning, and premium consumer app development."
+  },
+  {
+    "id": 39,
+    "name": "Meesho",
+    "logo": "https://logo.clearbit.com/meesho.com",
+    "career_url": "https://meesho.io/careers",
+    "jd": "We seek engineers with Java, Python, SQL, NoSQL, REST APIs, microservices, Kafka, Docker, Kubernetes, machine learning, recommendation systems, and social commerce platform development experience."
+  },
+  {
+    "id": 40,
+    "name": "Dream11",
+    "logo": "https://logo.clearbit.com/dream11.com",
+    "career_url": "https://dream11.com/careers",
+    "jd": "Seeking engineers skilled in Java, Python, Go, SQL, NoSQL, Redis, Kafka, distributed systems, REST APIs, microservices, Docker, Kubernetes, real-time systems, machine learning, and fantasy sports platform development."
+  }
+]
