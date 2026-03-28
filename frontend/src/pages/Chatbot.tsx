@@ -13,6 +13,7 @@ import {
   Loader2,
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import { chatWithMessage } from "@/lib/api";
 
 type Message = {
   id: string;
@@ -28,130 +29,7 @@ const suggestedPrompts = [
   { text: "Create a 30-day study plan for DSA", icon: Lightbulb },
 ];
 
-// Demo responses for mock mode
-const demoResponses: Record<string, string> = {
-  default: `Great question! Here's what I'd recommend:
-
-1. **Focus on fundamentals** — Make sure your data structures and algorithms are solid
-2. **Practice mock interviews** — Use the Mock Interview section to build confidence
-3. **Track your progress** — Check the Dashboard regularly to monitor improvement
-
-Would you like me to go deeper on any of these topics?`,
-  google: `## Preparing for a Google Interview 🎯
-
-Here's a structured approach:
-
-### Technical Preparation
-- **Data Structures**: Arrays, Trees, Graphs, Hash Maps
-- **Algorithms**: BFS/DFS, Dynamic Programming, Sorting
-- **Practice**: Solve 150+ LeetCode problems (focus on Medium/Hard)
-
-### System Design
-- Study distributed systems concepts
-- Practice designing: URL shortener, chat system, news feed
-
-### Behavioral
-- Use the **STAR method** for behavioral questions
-- Prepare stories about leadership, conflict resolution, and teamwork
-
-### Timeline
-| Week | Focus Area |
-|------|-----------|
-| 1-2 | DSA Fundamentals |
-| 3-4 | Advanced Algorithms |
-| 5-6 | System Design |
-| 7-8 | Mock Interviews |
-
-Want me to create a personalized roadmap based on your current skills?`,
-  skills: `## Key Skills for Backend Roles 🔧
-
-Based on current industry trends, here are the **most in-demand skills**:
-
-### Must-Have
-- **Languages**: Python, Java, Go, or Node.js
-- **Databases**: PostgreSQL, MongoDB, Redis
-- **APIs**: REST, GraphQL, gRPC
-- **Cloud**: AWS/GCP/Azure fundamentals
-
-### Good to Have
-- Docker & Kubernetes
-- Message Queues (Kafka, RabbitMQ)
-- CI/CD pipelines
-- Monitoring & Observability
-
-### Your Current Gaps
-Based on your profile, I'd recommend focusing on:
-1. \`System Design\` — currently at 42%
-2. \`Docker\` — not yet started
-3. \`AWS\` — not yet started
-
-Shall I generate a learning roadmap for these?`,
-  resume: `## Resume Improvement Suggestions 📝
-
-Based on your uploaded resume, here are my recommendations:
-
-### ✅ Strengths
-- Good project descriptions with quantifiable impact
-- Clean, professional formatting
-- Strong technical skills section
-
-### ⚠️ Areas for Improvement
-
-1. **Add more metrics** — Quantify your achievements
-   - ❌ "Improved application performance"
-   - ✅ "Improved application performance by **40%**, reducing load time from 3s to 1.8s"
-
-2. **Tailor for each role** — Customize your resume keywords to match job descriptions
-
-3. **Add a summary** — A 2-3 line professional summary at the top can make a strong first impression
-
-4. **Project links** — Include GitHub links and live demo URLs
-
-Would you like me to help rewrite any specific section?`,
-  plan: `## 30-Day DSA Study Plan 📚
-
-### Week 1: Arrays & Strings
-| Day | Topic | Problems |
-|-----|-------|----------|
-| 1-2 | Two Pointers | 5 problems |
-| 3-4 | Sliding Window | 5 problems |
-| 5-7 | String Manipulation | 5 problems |
-
-### Week 2: Linked Lists & Stacks
-| Day | Topic | Problems |
-|-----|-------|----------|
-| 8-9 | Singly Linked List | 5 problems |
-| 10-11 | Stack & Queue | 5 problems |
-| 12-14 | Monotonic Stack | 5 problems |
-
-### Week 3: Trees & Graphs
-| Day | Topic | Problems |
-|-----|-------|----------|
-| 15-17 | Binary Trees & BST | 8 problems |
-| 18-20 | BFS & DFS | 8 problems |
-| 21 | Review & Mock Test | 1 test |
-
-### Week 4: Advanced
-| Day | Topic | Problems |
-|-----|-------|----------|
-| 22-24 | Dynamic Programming | 8 problems |
-| 25-26 | Greedy Algorithms | 5 problems |
-| 27-28 | Backtracking | 5 problems |
-| 29-30 | Full Mock Tests | 2 tests |
-
-> 💡 **Tip**: Spend at least 2 hours daily and review solutions you couldn't solve.
-
-Want me to recommend specific problems for each topic?`,
-};
-
-function getResponse(input: string): string {
-  const lower = input.toLowerCase();
-  if (lower.includes("google") || lower.includes("interview prep")) return demoResponses.google;
-  if (lower.includes("skill") || lower.includes("backend")) return demoResponses.skills;
-  if (lower.includes("resume") || lower.includes("cv")) return demoResponses.resume;
-  if (lower.includes("plan") || lower.includes("study") || lower.includes("dsa")) return demoResponses.plan;
-  return demoResponses.default;
-}
+// Demo responses removed. Calling backend API directly.
 
 export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
@@ -184,18 +62,27 @@ export default function Chatbot() {
     setInput("");
     setIsLoading(true);
 
-    // Simulate AI thinking delay
-    await new Promise((r) => setTimeout(r, 1200));
-
-    const response = getResponse(text);
-    const assistantMsg: Message = {
-      id: crypto.randomUUID(),
-      role: "assistant",
-      content: response,
-      timestamp: new Date(),
-    };
-    setMessages((prev) => [...prev, assistantMsg]);
-    setIsLoading(false);
+    try {
+      const data = await chatWithMessage(text);
+      const assistantMsg: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: data.reply || "Sorry, I couldn't understand that.",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, assistantMsg]);
+    } catch (error) {
+      console.error(error);
+      const assistantMsg: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: "Oops! Something went wrong while connecting to the server.",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, assistantMsg]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

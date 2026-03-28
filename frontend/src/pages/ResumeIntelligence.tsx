@@ -1,29 +1,60 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { useToast } from "@/hooks/use-toast";
 import {
   Upload,
   FileText,
   CheckCircle2,
   XCircle,
   Building2,
-  ArrowRight,
   Github,
+  Loader2,
 } from "lucide-react";
-
-const matchedSkills = ["React.js", "JavaScript", "Python", "Git", "REST APIs", "SQL"];
-const missingSkills = ["System Design", "Docker", "AWS", "TypeScript"];
-const matchingCompanies = [
-  { name: "Google", match: 82, role: "SDE Intern" },
-  { name: "Microsoft", match: 78, role: "Software Engineer" },
-  { name: "Amazon", match: 75, role: "SDE I" },
-  { name: "Flipkart", match: 72, role: "Backend Engineer" },
-  { name: "Razorpay", match: 68, role: "Full Stack Developer" },
-];
+import { useAppStore } from "@/store/useAppStore";
+import { uploadResume } from "@/lib/api";
 
 export default function ResumeIntelligence() {
-  const [uploaded, setUploaded] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const { toast } = useToast();
+
+  const {
+    resumeFileId,
+    overallScore,
+    matchedSkills,
+    missingSkills,
+    companyMatches,
+    setMatchData,
+  } = useAppStore();
+
+  const uploaded = !!resumeFileId;
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    try {
+      const data = await uploadResume(file);
+      setMatchData(data);
+      toast({
+        title: "Resume Analyzed",
+        description: "Successfully processed your resume metrics.",
+      });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Upload Failed",
+        description: "There was an error analyzing your resume.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsUploading(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -37,21 +68,34 @@ export default function ResumeIntelligence() {
         {!uploaded ? (
           <div
             className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-border p-10 transition-colors hover:border-primary/40 cursor-pointer"
-            onClick={() => setUploaded(true)}
+            onClick={() => fileInputRef.current?.click()}
           >
-            <Upload className="h-10 w-10 text-muted-foreground mb-3" />
-            <p className="text-sm font-medium text-foreground">Drop your resume here or click to upload</p>
+            {isUploading ? (
+              <Loader2 className="h-10 w-10 text-primary animate-spin mb-3" />
+            ) : (
+              <Upload className="h-10 w-10 text-muted-foreground mb-3" />
+            )}
+            <p className="text-sm font-medium text-foreground">
+              {isUploading ? "Uploading & Analyzing..." : "Drop your resume here or click to upload"}
+            </p>
             <p className="text-xs text-muted-foreground mt-1">PDF, DOCX up to 5MB</p>
-            <Button className="mt-4" size="sm">
+            <Button className="mt-4" size="sm" disabled={isUploading}>
               <Upload className="mr-2 h-4 w-4" /> Choose File
             </Button>
+            <input
+              type="file"
+              ref={fileInputRef}
+              className="hidden"
+              accept=".pdf,.docx,.doc,.txt"
+              onChange={handleFileUpload}
+            />
           </div>
         ) : (
           <div className="flex items-center gap-3 rounded-lg bg-secondary p-3">
             <FileText className="h-5 w-5 text-primary" />
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-foreground">resume_john_doe.pdf</p>
-              <p className="text-xs text-muted-foreground">Uploaded just now • 245 KB</p>
+              <p className="text-sm font-medium text-foreground">{resumeFileId}</p>
+              <p className="text-xs text-muted-foreground">Uploaded recently</p>
             </div>
             <Badge variant="outline" className="bg-success/10 text-success border-success/20">Analyzed</Badge>
           </div>
@@ -63,12 +107,12 @@ export default function ResumeIntelligence() {
           {/* Match Score */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-xl border bg-card p-5 animate-fade-in">
-              <p className="text-sm text-muted-foreground">Overall Match Score</p>
+              <p className="text-sm text-muted-foreground">Matched Company Score</p>
               <div className="mt-2 flex items-end gap-2">
-                <span className="font-display text-4xl font-bold text-primary">76%</span>
+                <span className="font-display text-4xl font-bold text-primary">{Math.round(overallScore)}%</span>
               </div>
-              <Progress value={76} className="mt-3 h-2" />
-              <p className="mt-2 text-xs text-muted-foreground">Based on top 50 job descriptions</p>
+              <Progress value={overallScore} className="mt-3 h-2" />
+              <p className="mt-2 text-xs text-muted-foreground">Based on top company</p>
             </div>
 
             <div className="rounded-xl border bg-card p-5 animate-fade-in">
@@ -111,24 +155,30 @@ export default function ResumeIntelligence() {
               </Button>
             </div>
 
-            {/* Company Matches */}
             <div className="rounded-xl border bg-card p-5 animate-fade-in">
               <h2 className="font-display text-lg font-semibold text-card-foreground mb-4">Top Matching Companies</h2>
               <div className="space-y-2">
-                {matchingCompanies.map((c) => (
-                  <div key={c.name} className="flex items-center gap-3 rounded-lg p-2.5 transition-colors hover:bg-secondary">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary">
-                      <Building2 className="h-4 w-4 text-muted-foreground" />
+                {companyMatches.map((c) => (
+                  <div key={c.company_name} className="flex items-center gap-3 rounded-lg p-2.5 transition-colors hover:bg-secondary">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary overflow-hidden">
+                      {c.logo ? (
+                        <img src={c.logo} alt={c.company_name} className="h-full w-full object-contain" />
+                      ) : (
+                        <Building2 className="h-4 w-4 text-muted-foreground" />
+                      )}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-card-foreground">{c.name}</p>
-                      <p className="text-xs text-muted-foreground">{c.role}</p>
+                      <p className="text-sm font-medium text-card-foreground">{c.company_name}</p>
+                      <a href={c.career_url} target="_blank" rel="noreferrer" className="text-xs text-primary hover:underline">View Roles</a>
                     </div>
                     <div className="text-right">
-                      <span className="text-sm font-semibold text-primary">{c.match}%</span>
+                      <span className="text-sm font-semibold text-primary">{Math.round(c.final_match_percentage)}%</span>
                     </div>
                   </div>
                 ))}
+                {companyMatches.length === 0 && (
+                  <p className="text-sm text-muted-foreground">No matches found.</p>
+                )}
               </div>
             </div>
           </div>
