@@ -73,9 +73,9 @@ async def upload_resume(file: UploadFile = File(...)):
     }
 
 
-import google.generativeai as genai
+from google import genai
 
-genai.configure(api_key="AIzaSyAsChUhI65OegzcH98b_NafKtLjyqpF6_o")
+# genai.configure(api_key="GEMINI_API_KEY")
 
-for m in genai.list_models():
-    print(m.name)
+# for m in genai.list_models():
+#     print(m.name)
